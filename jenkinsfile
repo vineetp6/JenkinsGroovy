@@ -4,18 +4,13 @@ node {
 	git branch: '${branch}', url: 'https://github.com/vineetp6/JenkinsGroovy.git'
     }
     stage('Build') {
-       try{
         echo 'Building....'
 	sh 'dotnet --version'
 	sh 'dotnet build ConsoleApp1'
 	echo 'new feature'
 	releasenotes()
-	} catch(ex){
-	   echo "something Wrong"
-	 }
-	 finally{
-	 }
-    }
+	}
+	
     stage('Test') {
         echo 'Testing....'
     }
